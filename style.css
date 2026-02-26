@@ -1,0 +1,799 @@
+
+:root {
+    --yellow: #f5d157;
+    --yellow-hover: #e6c146;
+    --red: #d9434e; /* Para el botón vaciar */
+    --bg: #f2f4f7;
+    --text: #111;
+    --muted: #666;
+    --card: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border: 1px solid #e1e4e8;
+    --max: 1100px;
+}/* Botón Vaciar Carrito */
+.btn-danger {
+    background: #111; /* Color negro */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.btn-danger:hover {
+    background: #333; /* Un gris oscuro al pasar el mouse */
+}
+
+/* Botón Pagar con PSE (Rojo para resaltar) */
+.btn-primary {
+    background: var(--red); /* Usa tu variable roja */
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.4;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* ==========================================================================
+   NAVBAR (Limpio y Fijo)
+   ========================================================================== */
+.navbar {
+    position: sticky; top: 0; z-index: 2000;
+    background: #fff; border-bottom: var(--border);
+    padding: 15px 0;
+}
+.navbar .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; font-size: 1.2rem; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; }
+
+/* ==========================================================================
+   HERO (Diseño Imagen)
+   ========================================================================== */
+
+:root {
+    --yellow: #f5d157;
+    --yellow-hover: #e6c146;
+    --red: #d9434e; /* Para el botón vaciar */
+    --bg: #f2f4f7;
+    --text: #111;
+    --muted: #666;
+    --card: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border: 1px solid #e1e4e8;
+    --max: 1100px;
+}/* Botón Vaciar Carrito */
+.btn-danger {
+    background: #111; /* Color negro */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.btn-danger:hover {
+    background: #333; /* Un gris oscuro al pasar el mouse */
+}
+
+/* Botón Pagar con PSE (Rojo para resaltar) */
+.btn-primary {
+    background: var(--red); /* Usa tu variable roja */
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.4;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* ==========================================================================
+   NAVBAR (Limpio y Fijo)
+   ========================================================================== */
+.navbar {
+    position: sticky; top: 0; z-index: 2000;
+    background: #fff; border-bottom: var(--border);
+    padding: 15px 0;
+}
+.navbar .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; font-size: 1.2rem; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; }
+
+/* ==========================================================================
+   HERO (Diseño Imagen)
+   ========================================================================== */
+.hero {
+    margin: 20px 0; border-radius: var(--radius);
+    overflow: hidden; position: relative; min-height: 380px;
+    background: url("img/foto.jpg") center/cover no-repeat;
+    display: flex; align-items: center;
+}
+.hero-inner { position: relative; padding: 50px; color: #fff; z-index: 2; }
+.hero-text h1 { font-size: 3rem; font-weight: 800; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero-text p { font-size: 1.1rem; margin: 10px 0 25px; opacity: 0.95; }
+
+/* ==========================================================================
+   GRID PRINCIPAL (Cómo funciona + Carrito)
+   ========================================================================== */
+.main-grid {
+    display: grid; grid-template-columns: 1.8fr 1fr; gap: 25px; align-items: start;
+}
+
+.card { background: var(--card); border-radius: var(--radius); border: var(--border); padding: 25px; }
+
+/* Estilo Lista "Cómo funciona" */
+.steps-list { list-style: none; padding: 0; margin: 0; }
+.steps-list li { 
+    display: flex; gap: 15px; margin-bottom: 12px; align-items: flex-start; 
+    font-size: 14.5px; font-weight: 500;
+}
+.step-num { 
+    background: var(--yellow); color: var(--text); 
+    width: 24px; height: 24px; border-radius: 6px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-weight: 800; font-size: 13px; flex-shrink: 0;
+}
+
+/* Carrito Diseño Refinado */
+.carrito-box { position: sticky; top: 100px; }
+.cart-item { 
+    padding: 12px; border-radius: 8px; border: 1px solid #f0f0f0; margin-bottom: 10px;
+}
+.cart-total { 
+    display: flex; justify-content: space-between; 
+    font-weight: 800; font-size: 1.2rem; margin: 20px 0;
+}
+/* Contenedor de la sección */
+.combos-section { padding: 40px 0; background: #f2f4f7; }
+.section-title { font-size: 28px; font-weight: 800; margin-bottom: 30px; color: #111; }
+
+/* Grid de Tarjetas */
+.combos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px; 
+}
+
+/* Tarjeta individual */
+.combo-card { 
+    background: #fff; 
+    border-radius: 16px; 
+    border: 1px solid #e1e4e8; 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+}
+
+.combo-card:hover { transform: translateY(-5px); }
+
+/* Encabezado: Título e Imagen */
+.combo-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.combo-info h3 { margin: 0; font-size: 20px; font-weight: 800; }
+.combo-info p { margin: 4px 0 0; color: #666; font-size: 14px; }
+.combo-img { width: 90px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
+
+/* La cuadrícula de números (Clave del diseño) */
+.nums-grid { 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr); /* 7 números por fila */
+    gap: 8px; 
+    margin-bottom: 24px; 
+}
+
+.numero-tag { 
+    background: #fff3cd; /* Amarillo suave de la imagen */
+    color: #856404; 
+    font-size: 12px; 
+    font-weight: 700; 
+    padding: 8px 0; 
+    border-radius: 6px; 
+    text-align: center; 
+    border: 1px solid #ffeeba;
+}
+
+/* Pie de la tarjeta: Precio y Botón */
+.combo-footer { 
+    margin-top: auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-top: 20px; 
+    border-top: 1px solid #f0f0f0; 
+}
+
+.price { font-size: 15px; color: #444; }
+.price strong { font-size: 20px; color: #111; display: block; }
+
+.btn-add { 
+    background: var(--red); /* Todos usarán tu color rojo */
+    color: #fff; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 10px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background 0.2s;
+}
+
+.btn-add:hover { background: #333; }
+
+/* Responsive */
+@media (max-width: 850px) {
+    .combos-grid { grid-template-columns: 1fr; }
+    .nums-grid { grid-template-columns: repeat(5, 1fr); }
+}
+/* ==========================================================================
+   SECCIÓN ACCESO (Login y Registro)
+/* ==========================================================================*/
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin: 50px auto;
+    max-width: var(--max);
+    padding: 0 20px;
+}
+
+.auth-title {
+    grid-column: 1 / -1; 
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+/* Estilo para los campos de texto y selects */
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+/* BOTÓN REGISTRARME (ROJO) */
+.btn-primary {
+    background: var(--red); /* Usando tu variable roja */
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* BOTÓN INGRESAR (OSCURO) */
+.btn-dark {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+}
+/* ==========================================================================
+   FOOTER PROFESIONAL
+   ========================================================================== */
+.footer {
+    background: #fff;
+    padding: 40px 0 0;
+    border-top: var(--border);
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-logo { font-weight: 800; font-size: 1.2rem; margin-bottom: 10px; }
+.footer-text { font-size: 13px; color: var(--muted); }
+.footer-title { font-size: 14px; font-weight: 800; margin-bottom: 15px; }
+
+.footer-list { list-style: none; padding: 0; margin: 0; }
+.footer-list li { margin-bottom: 8px; font-size: 13px; }
+.footer-list a { text-decoration: none; color: var(--muted); }
+
+.footer-social { display: flex; gap: 10px; }
+.social-btn {
+    width: 32px; height: 32px; background: #f0f0f0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; text-decoration: none; color: #111; font-weight: bold;
+}
+
+.footer-bottom {
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.footer-bottom-inner { display: flex; justify-content: space-between; }
+
+/* Responsive para Footer y Acceso */
+@media (max-width: 850px) {
+    .auth-container, .footer-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   RECTIFICACIONES DE RESPONSIVIDAD
+   ========================================================================== */
+
+/* --- 1. Ajustes para el HERO (Banner) --- */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 250px; /* Más bajo en móvil */
+    }
+    .hero-inner {
+        padding: 20px; /* Menos espacio interno */
+    }
+    .hero-text h1 {
+        font-size: 1.8rem; /* Tamaño de letra legible en móvil */
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+.hero-text h1 { 
+    font-size: 3.5rem; /* Un poco más grande */
+    font-weight: 900; 
+    margin: 0; 
+    line-height: 1.1; /* Letras más juntas, se ve más moderno */
+    text-shadow: 2px 4px 15px rgba(0,0,0,0.5); /* Sombra más profunda */
+    letter-spacing: -1px;
+}
+
+.hero-text p { 
+    font-size: 1.25rem; 
+    margin: 15px 0 30px; 
+    max-width: 500px; /* Evita que el texto sea muy largo horizontalmente */
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+.hero-inner { position: relative; padding: 50px; color: #fff; z-index: 2; }
+.hero-text h1 { font-size: 3rem; font-weight: 800; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero-text p { font-size: 1.1rem; margin: 10px 0 25px; opacity: 0.95; }
+
+/* ==========================================================================
+   GRID PRINCIPAL (Cómo funciona + Carrito)
+   ========================================================================== */
+.main-grid {
+    display: grid; grid-template-columns: 1.8fr 1fr; gap: 25px; align-items: start;
+}
+
+.card { background: var(--card); border-radius: var(--radius); border: var(--border); padding: 25px; }
+
+/* Estilo Lista "Cómo funciona" */
+.steps-list { list-style: none; padding: 0; margin: 0; }
+.steps-list li { 
+    display: flex; gap: 15px; margin-bottom: 12px; align-items: flex-start; 
+    font-size: 14.5px; font-weight: 500;
+}
+.step-num { 
+    background: var(--yellow); color: var(--text); 
+    width: 24px; height: 24px; border-radius: 6px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-weight: 800; font-size: 13px; flex-shrink: 0;
+}
+
+/* Carrito Diseño Refinado */
+.carrito-box { position: sticky; top: 100px; }
+.cart-item { 
+    padding: 12px; border-radius: 8px; border: 1px solid #f0f0f0; margin-bottom: 10px;
+}
+.cart-total { 
+    display: flex; justify-content: space-between; 
+    font-weight: 800; font-size: 1.2rem; margin: 20px 0;
+}
+/* Contenedor de la sección */
+.combos-section { padding: 40px 0; background: #f2f4f7; }
+.section-title { font-size: 28px; font-weight: 800; margin-bottom: 30px; color: #111; }
+
+/* Grid de Tarjetas */
+.combos-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px; 
+}
+
+/* Tarjeta individual */
+.combo-card { 
+    background: #fff; 
+    border-radius: 16px; 
+    border: 1px solid #e1e4e8; 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+}
+
+.combo-card:hover { transform: translateY(-5px); }
+
+/* Encabezado: Título e Imagen */
+.combo-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.combo-info h3 { margin: 0; font-size: 20px; font-weight: 800; }
+.combo-info p { margin: 4px 0 0; color: #666; font-size: 14px; }
+.combo-img { width: 90px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
+
+/* La cuadrícula de números (Clave del diseño) */
+.nums-grid { 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr); /* 7 números por fila */
+    gap: 8px; 
+    margin-bottom: 24px; 
+}
+
+.numero-tag { 
+    background: #fff3cd; /* Amarillo suave de la imagen */
+    color: #856404; 
+    font-size: 12px; 
+    font-weight: 700; 
+    padding: 8px 0; 
+    border-radius: 6px; 
+    text-align: center; 
+    border: 1px solid #ffeeba;
+}
+
+/* Pie de la tarjeta: Precio y Botón */
+.combo-footer { 
+    margin-top: auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-top: 20px; 
+    border-top: 1px solid #f0f0f0; 
+}
+
+.price { font-size: 15px; color: #444; }
+.price strong { font-size: 20px; color: #111; display: block; }
+
+.btn-add { 
+    background: var(--red); /* Todos usarán tu color rojo */
+    color: #fff; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 10px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background 0.2s;
+}
+
+.btn-add:hover { background: #333; }
+
+/* Responsive */
+@media (max-width: 850px) {
+    .combos-grid { grid-template-columns: 1fr; }
+    .nums-grid { grid-template-columns: repeat(5, 1fr); }
+}
+/* ==========================================================================
+   SECCIÓN ACCESO (Login y Registro)
+/* ==========================================================================*/
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin: 50px auto;
+    max-width: var(--max);
+    padding: 0 20px;
+}
+
+.auth-title {
+    grid-column: 1 / -1; 
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+/* Estilo para los campos de texto y selects */
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+/* BOTÓN REGISTRARME (ROJO) */
+.btn-primary {
+    background: var(--red); /* Usando tu variable roja */
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* BOTÓN INGRESAR (OSCURO) */
+.btn-dark {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+}
+/* ==========================================================================
+   FOOTER PROFESIONAL
+   ========================================================================== */
+.footer {
+    background: #fff;
+    padding: 40px 0 0;
+    border-top: var(--border);
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-logo { font-weight: 800; font-size: 1.2rem; margin-bottom: 10px; }
+.footer-text { font-size: 13px; color: var(--muted); }
+.footer-title { font-size: 14px; font-weight: 800; margin-bottom: 15px; }
+
+.footer-list { list-style: none; padding: 0; margin: 0; }
+.footer-list li { margin-bottom: 8px; font-size: 13px; }
+.footer-list a { text-decoration: none; color: var(--muted); }
+
+.footer-social { display: flex; gap: 10px; }
+.social-btn {
+    width: 32px; height: 32px; background: #f0f0f0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; text-decoration: none; color: #111; font-weight: bold;
+}
+
+.footer-bottom {
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.footer-bottom-inner { display: flex; justify-content: space-between; }
+
+/* Responsive para Footer y Acceso */
+@media (max-width: 850px) {
+    .auth-container, .footer-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   RECTIFICACIONES DE RESPONSIVIDAD
+   ========================================================================== */
+
+/* --- 1. Ajustes para el HERO (Banner) --- */
+@media (max-width: 600px) {
+    .hero {
+        min-height: 250px; /* Más bajo en móvil */
+    }
+    .hero-inner {
+        padding: 20px; /* Menos espacio interno */
+    }
+    .hero-text h1 {
+        font-size: 1.8rem; /* Tamaño de letra legible en móvil */
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
+/* --- 2. Ajustes para el GRID PRINCIPAL --- */
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* El carrito pasa abajo del "Cómo funciona" */
+    }
+    .carrito-box {
+        position: static; /* Ya no se queda pegado al bajar, ocupa su lugar normal */
+    }
+}
+
+/* --- 3. Ajustes para los COMBOS --- */
+@media (max-width: 850px) {
+    .combos-grid {
+        grid-template-columns: 1fr; /* Un combo por fila */
+    }
+    
+    .nums-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 números por fila en lugar de 7 */
+    }
+}
+
+@media (max-width: 450px) {
+    .nums-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 números en pantallas muy pequeñas */
+        gap: 5px;
+    }
+    .combo-card {
+        padding: 15px;
+    }
+    .combo-header {
+        flex-direction: column; /* Imagen arriba, texto abajo o viceversa */
+        gap: 10px;
+    }
+    .combo-img {
+        width: 100%; /* Imagen a todo lo ancho en el combo móvil */
+        height: 120px;
+    }
+}
+
+/* --- 4. Ajustes para el LOGIN / REGISTRO --- */
+@media (max-width: 700px) {
+    .auth-container {
+        grid-template-columns: 1fr; /* Formulario de registro arriba, login abajo */
+        margin: 20px auto;
+    }
+    .auth-title {
+        text-align: center;
+        font-size: 22px;
+    }
+}
+
+/* --- 5. Ajustes para el FOOTER --- */
+@media (max-width: 850px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una columna legal, una de contacto, etc. */
+        text-align: center;
+    }
+    .footer-social {
+        justify-content: center; /* Centrar iconos sociales */
+    }
+    .footer-bottom-inner {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   MENÚ RESPONSIVE FINAL (Móvil y Tablet)
+   ========================================================================== */
+/* ==========================================================================
+   MENÚ RESPONSIVE UNIFICADO
+   ========================================================================== */
+
+/* Botón hamburguesa oculto por defecto (PC) */
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 3001; /* Siempre por encima del menú */
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Configuración para Móvil y Tablet */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex; /* Aparece el botón */
+    }
+
+    .nav-links {
+        display: none; /* Se oculta la lista */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo de la navbar */
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 10px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 3000;
+        border-top: 2px solid var(--yellow);
+    }
+
+    /* Esta es la clase que activa tu JavaScript */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        padding: 15px 25px;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        font-size: 16px;
+        display: block;
+    }
+}

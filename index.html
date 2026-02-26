@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>SorteaCarros</title>
+</head>
+<body>
+<header class="navbar">
+    <div class="wrap">
+        <div class="logo">SorteaCarros</div>
+        
+        <button class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links" id="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#combos">Combos</a>
+            <a href="#login">Iniciar sesión</a>
+        </nav>
+    </div>
+</header>
+
+<main class="wrap">
+    <section id="inicio" class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>Bienvenido a<br>SorteaCarros 🚗🔥</h1>
+                <p>Participa en sorteos de carros, motos y premios increíbles.</p>
+                <a class="btn-primary" href="#combos" style="text-decoration:none;">Ver combos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-grid">
+        <div id="como" class="card">
+            <h2>¿Cómo funciona?</h2>
+            <ul class="steps-list">
+                <li><span class="step-num">1</span> Te registras y creas una cuenta en menos de 1 minuto.</li>
+                <li><span class="step-num">2</span> Compras un combo que incluye números únicos no repetidos.</li>
+                <li><span class="step-num">3</span> Pagas por PSE o los medios que prefieras.</li>
+                <li><span class="step-num">4</span> Te guardamos el historial y puedes ver tu compra siempre.</li>
+                <li><span class="step-num">5</span> Los sorteos se realizan en vivo con transparencia.</li>
+                <li><span class="step-num">6</span> Si ganas, te contactamos inmediatamente.</li>
+            </ul>
+        </div>
+
+        <aside id="carrito" class="card carrito-box">
+            <h3>🛒 Carrito de compra</h3>
+            <div id="carrito-items">
+                </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>$<span id="total">0</span></span>
+            </div>
+            <button class="btn-danger" onclick="vaciarCarrito()" style="margin-bottom:10px;">Vaciar carrito</button>
+            <button class="btn-primary" style="width:100%;" onclick="pagarPSE()">Pagar con PSE</button>
+            <p style="font-size:12px; color:#666; margin-top:10px; text-align:center;">
+                ¿No tienes link? Pulsa pagar y te enviará a WhatsApp.
+            </p>
+        </aside>
+    </section>
+
+    <section id="combos" class="combos-section">
+  <div class="wrap">
+    <h2 class="section-title">Combos disponibles</h2>
+    <div class="combos-grid">
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <div class="combo-info">
+            <h3>Combo #1</h3>
+            <p>8 números · $1.500 c/u</p>
+          </div>
+          <img src="img/inicio.jpg" alt="Sorteo" class="combo-img">
+        </div>
+        <div class="nums-grid">
+          <span class="numero-tag">2158</span><span class="numero-tag">6374</span>
+          <span class="numero-tag">1247</span><span class="numero-tag">8665</span>
+          <span class="numero-tag">5003</span><span class="numero-tag">3719</span>
+          <span class="numero-tag">5406</span><span class="numero-tag">4677</span>
+        </div>
+        <div class="combo-footer">
+          <div class="price">Total: <strong>$12.000</strong></div>
+          <button class="btn-add" onclick="addToCart('Combo #1', 12000)">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <div class="combo-info">
+            <h3>Combo #2</h3>
+            <p>12 números · $1.500 c/u</p>
+          </div>
+          <img src="img/inicio.jpg" alt="Sorteo" class="combo-img">
+        </div>
+        <div class="nums-grid">
+          <span class="numero-tag">9954</span><span class="numero-tag">1328</span>
+          <span class="numero-tag">5476</span><span class="numero-tag">7246</span>
+          <span class="numero-tag">4199</span><span class="numero-tag">3269</span>
+          <span class="numero-tag">7226</span><span class="numero-tag">4749</span>
+          <span class="numero-tag">3836</span><span class="numero-tag">1195</span>
+          <span class="numero-tag">4169</span><span class="numero-tag">3289</span>
+        </div>
+        <div class="combo-footer">
+          <div class="price">Total: <strong>$22.500</strong></div>
+          <button class="btn-add" onclick="addToCart('Combo #2', 22500)">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <div class="combo-info">
+            <h3>Combo #3</h3>
+            <p>16 números · $1.500 c/u</p>
+          </div>
+          <img src="img/inicio.jpg" alt="Sorteo" class="combo-img">
+        </div>
+        <div class="nums-grid">
+          <span class="numero-tag">3762</span><span class="numero-tag">5083</span>
+          <span class="numero-tag">2038</span><span class="numero-tag">4798</span>
+          <span class="numero-tag">2032</span><span class="numero-tag">4106</span>
+          <span class="numero-tag">5469</span><span class="numero-tag">4763</span>
+          <span class="numero-tag">6728</span><span class="numero-tag">6714</span>
+          <span class="numero-tag">8236</span><span class="numero-tag">8569</span>
+          <span class="numero-tag">8666</span><span class="numero-tag">5072</span>
+          <span class="numero-tag">9408</span><span class="numero-tag">6321</span>
+        </div>
+        <div class="combo-footer">
+          <div class="price">Total: <strong>$24.000</strong></div>
+          <button class="btn-add" onclick="addToCart('Combo #3', 24000)">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-header">
+          <div class="combo-info">
+            <h3>Combo #4</h3>
+            <p>20 números · $1.500 c/u</p>
+          </div>
+          <img src="img/inicio.jpg" alt="Sorteo" class="combo-img">
+        </div>
+        <div class="nums-grid">
+          <span class="numero-tag">2528</span><span class="numero-tag">6059</span>
+          <span class="numero-tag">3252</span><span class="numero-tag">1098</span>
+          <span class="numero-tag">3672</span><span class="numero-tag">3993</span>
+          <span class="numero-tag">5324</span><span class="numero-tag">4463</span>
+          <span class="numero-tag">5595</span><span class="numero-tag">3668</span>
+          <span class="numero-tag">9214</span><span class="numero-tag">3662</span>
+          <span class="numero-tag">5567</span><span class="numero-tag">9072</span>
+          <span class="numero-tag">2158</span><span class="numero-tag">6374</span>
+          <span class="numero-tag">1247</span><span class="numero-tag">8665</span>
+          <span class="numero-tag">1244</span><span class="numero-tag">8065</span>
+        </div>
+        <div class="combo-footer">
+          <div class="price">Total: <strong>$30.000</strong></div>
+          <button class="btn-add" onclick="addToCart('Combo #4', 30000)">Agregar al carrito</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+    <div class="auth-container" id="login">
+        <h2 class="auth-title">Accede a tu cuenta</h2>
+        
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
+                <h3 style="margin:0;">Registro</h3>
+                <span style="background:#fff3cd; padding:2px 8px; border-radius:5px; font-size:12px; font-weight:bold;">Nuevo</span>
+            </div>
+            <div class="form-group">
+                <label>Tipo de documento</label>
+                <select><option>Cédula de ciudadanía</option></select>
+            </div>
+            <div class="form-group">
+                <label>N° Documento</label>
+                <input type="text" placeholder="Ej: 1020304050">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="tu@correo.com">
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="********">
+            </div>
+            <button class="btn-primary" style="width:100%;">Registrarme</button>
+        </div>
+
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
+                <h3 style="margin:0;">Iniciar sesión</h3>
+                <span style="background:#e9ecef; padding:2px 8px; border-radius:5px; font-size:12px; font-weight:bold;">Cliente</span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="tu@correo.com">
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" placeholder="********">
+            </div>
+            <button class="btn-dark" style="width:100%; margin-bottom:15px;">Ingresar</button>
+            <a href="#" style="font-size:13px; color:#666; text-decoration:none;">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+</main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">SorteaCarros</div>
+        <p class="footer-text">
+          Soporte y atención al cliente.
+          <br><b>Lunes a viernes:</b> 8:00 a.m. – 5:00 p.m.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Contacto</h4>
+        <ul class="footer-list">
+          <li><b>Correo:</b> <a href="mailto:soporte@sorteacarros.com">soporte@sorteacarros.com</a></li>
+          <li><b>WhatsApp:</b> <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">+57 300 000 0000</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Legal</h4>
+        <ul class="footer-list">
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Redes sociales</h4>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61563535447614" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a class="social-btn" href="https://www.instagram.com/angelbuelvasvergara?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">i</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+    <div class="wrap footer-bottom-inner">
+        <span class="copyright">
+            © <span id="year"></span> **SorteaCarros**. 
+            <span class="separator">|</span> 
+            Realizado por <span class="author">Rosa Correa</span>
+        </span>
+        <span class="footer-mini">Pagos: PSE</span>
+    </div>
+</div>
+ 
+<script src="script.js"></script>
+</body>
+</html>
