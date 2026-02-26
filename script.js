@@ -82,4 +82,10 @@ if (menuToggle && navLinks) {
             menuToggle.classList.remove('is-open'); // Vuelve a ser hamburguesa
         });
     });
+
+}
+function registrarUsuario() {
+    // TODO: Integrar con API de base de datos
+    // Actualmente solo simula el proceso en el navegador
+    console.log("Datos listos para enviar al servidor...");
 }
