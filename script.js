@@ -1,13 +1,14 @@
-    
-    
-     /* ==========================================================================
+    /* ==========================================================================
    CONFIGURACIÓN Y VARIABLES
    ========================================================================== */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-let carrito = []; 
-let total = 0;
-const WHATSAPP_NUMBER = "573000000000"; // <-- Cambia por tu número real
+// CARGA INICIAL: Intentamos recuperar el carrito guardado
+let carrito = JSON.parse(localStorage.getItem('carritoSorteo')) || [];
+// Recalculamos el total basado en lo que se recuperó
+let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+
+const WHATSAPP_NUMBER = "573000000000"; // <-- ASEGÚRATE DE QUE ESTE SEA TU NÚMERO
 
 const carritoContainer = document.getElementById("carrito-items");
 const totalSpan = document.getElementById("total");
@@ -19,33 +20,29 @@ const navLinks = document.getElementById('nav-links');
    ========================================================================== */
 
 function addToCart(nombre, precio) {
-    // 1. Verificar si el combo ya está en el carrito
     const yaExiste = carrito.find(item => item.nombre === nombre);
 
     if (yaExiste) {
         alert("Este combo ya está en tu carrito. ¡Elige uno diferente!");
-        return; // Salimos de la función para que no se agregue
+        return;
     }
 
-    // 2. Si no existe, procedemos a agregarlo
-    console.log("Agregando combo único:", nombre, precio);
-    
     carrito.push({ nombre, precio });
     total += precio;
     
+    // GUARDAR en memoria del navegador
+    actualizarMemoria();
     renderizarCarrito();
 }
 
 function renderizarCarrito() {
     if (!carritoContainer) return;
 
-    // Limpiamos el contenedor
     carritoContainer.innerHTML = "";
 
-    // Dibujamos cada item
     carrito.forEach((item) => {
         const div = document.createElement("div");
-        div.className = "cart-item"; // Usamos la clase que definimos en CSS
+        div.className = "cart-item";
         div.innerHTML = `
             <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
                 <span><strong>${item.nombre}</strong></span>
@@ -55,37 +52,62 @@ function renderizarCarrito() {
         carritoContainer.appendChild(div);
     });
 
-    // Actualizamos el total en el HTML
     totalSpan.textContent = total.toLocaleString();
+}
+
+function actualizarMemoria() {
+    localStorage.setItem('carritoSorteo', JSON.stringify(carrito));
 }
 
 function vaciarCarrito() {
     carrito = [];
     total = 0;
+    localStorage.removeItem('carritoSorteo');
     renderizarCarrito();
 }
+
 /* ==========================================================================
-   MENÚ MÓVIL (Versión Corregida)
+   FUNCIÓN DE PAGO (WHATSAPP)
+   ========================================================================== */
+
+function enviarWhatsApp() {
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío. ¡Elige un combo primero!");
+        return;
+    }
+
+    let mensaje = "¡Hola! 👋 Quiero comprar estos combos para el sorteo:%0A%0A";
+    
+    carrito.forEach((item, index) => {
+        mensaje += `${index + 1}. *${item.nombre}* - $${item.precio.toLocaleString()}%0A`;
+    });
+
+    mensaje += `%0A*Total a pagar: $${total.toLocaleString()}*`;
+    mensaje += "%0A%0A¿Cuáles son los pasos para el pago?";
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensaje}`;
+    
+    // Abrir en pestaña nueva
+    window.open(url, '_blank');
+}
+
+/* ==========================================================================
+   MENÚ MÓVIL
    ========================================================================== */
 
 if (menuToggle && navLinks) {
-    // 1. Un solo evento para abrir/cerrar
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('is-open'); // Activa la animación de la X
+        menuToggle.classList.toggle('is-open');
     });
 
-    // 2. Cerrar el menú automáticamente al tocar un link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
-            menuToggle.classList.remove('is-open'); // Vuelve a ser hamburguesa
+            menuToggle.classList.remove('is-open');
         });
     });
+}
 
-}
-function registrarUsuario() {
-    // TODO: Integrar con API de base de datos
-    // Actualmente solo simula el proceso en el navegador
-    console.log("Datos listos para enviar al servidor...");
-}
+// INICIALIZACIÓN: Dibujar el carrito apenas cargue la página
+renderizarCarrito();
